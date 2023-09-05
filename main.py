@@ -30,44 +30,7 @@ class SSPANEL:
         self.qywx_touser = QYWX_TOUSER
         self.qywx_media_id = QYWX_MEDIA_ID
 
-    def message2qywxapp(self, qywx_corpid, qywx_agentid, qywx_corpsecret, qywx_touser, qywx_media_id, content, url):
-        print("企业微信应用消息推送开始")
-        res = requests.get(
-            f"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={qywx_corpid}&corpsecret={qywx_corpsecret}"
-        )
-        token = res.json().get("access_token", False)
-        if qywx_media_id:
-            data = {
-                "touser": qywx_touser,
-                "msgtype": "mpnews",
-                "agentid": int(qywx_agentid),
-                "mpnews": {
-                    "articles": [
-                        {
-                            "title": "ikuuu 签到通知",
-                            "thumb_media_id": qywx_media_id,
-                            "content_source_url": url,
-                            "content": content.replace("\n", "<br>"),
-                            "digest": content,
-                        }
-                    ]
-                },
-            }
-        else:
-            data = {
-                "touser": qywx_touser,
-                "agentid": int(qywx_agentid),
-                "msgtype": "textcard",
-                "textcard": {
-                    "title": "ikuuu 签到通知",
-                    "description": content,
-                    "url": url,
-                },
-            }
-        result = requests.post(url=f"https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={token}",
-                               data=json.dumps(data))
-        # print(result)
-        return
+   
 
     def sign(self, email, password, url):
         email = email.replace("@", "%40")
@@ -107,8 +70,8 @@ class SSPANEL:
             {"name": "签到信息", "value": f"{sign_msg}"},
         ]
         msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
-        self.message2qywxapp(qywx_corpid=qywx_corpid, qywx_agentid=qywx_agentid, qywx_corpsecret=qywx_corpsecret,
-                             qywx_touser=qywx_touser, qywx_media_id=qywx_media_id, content=msg, url=url)
+        # self.message2qywxapp(qywx_corpid=qywx_corpid, qywx_agentid=qywx_agentid, qywx_corpsecret=qywx_corpsecret,
+        #                      qywx_touser=qywx_touser, qywx_media_id=qywx_media_id, content=msg, url=url)
         return msg
 
 
