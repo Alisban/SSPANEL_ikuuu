@@ -29,7 +29,8 @@ jobs:
       run: |
         python3 main.py 
       env: 
-        EMAIL: ${{ secrets.EMAILS }}
+        EMAIL: ${{ secrets.EMAIL }}
+        EMAILS: ${{ secrets.EMAILS }}
         PASSWORD: ${{ secrets.PASSWORD }}
         DOMAIN: ${{ secrets.DOMAIN }}
         QYWX_CORPID: ${{ secrets.QYWX_CORPID }}
