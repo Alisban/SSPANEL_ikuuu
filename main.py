@@ -7,7 +7,7 @@ import os
 
 
 #账户
-EMAIL = os.environ["EMAIL"]
+EMAIL = os.environ["EMAILS"]
 PASSWORD = os.environ["PASSWORD"]
 DOMAIN = os.environ["DOMAIN"]
 
@@ -56,7 +56,7 @@ class SSPANEL:
         return msg
 
     def main(self):
-        emails = self.check_item.get("emails")
+        emails = self.check_item.get("email")
         password = self.check_item.get("password")
         url = self.check_item.get("url")
         # qywx_corpid = self.qywx_corpid
