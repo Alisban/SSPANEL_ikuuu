@@ -56,7 +56,7 @@ class SSPANEL:
         return msg
 
     def main(self):
-        email = self.check_item.get("email")
+        emails = self.check_item.get("emails")
         password = self.check_item.get("password")
         url = self.check_item.get("url")
         # qywx_corpid = self.qywx_corpid
@@ -64,17 +64,15 @@ class SSPANEL:
         # qywx_corpsecret = self.qywx_corpsecret
         # qywx_touser = self.qywx_touser
         # qywx_media_id = self.qywx_media_id
-        
-        sign_msg = self.sign(email=email, password=password, url=url)
-        msg = [
-            {"name": "帐号信息", "value": email},
-            {"name": "签到信息", "value": f"{sign_msg}"},
-        ]
-        
-        msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
 
-        print(msg)
-        
+        for email in emails.split(","):
+            sign_msg = self.sign(email=email, password=password, url=url)
+            msg = [
+                {"name": "帐号信息", "value": email},
+                {"name": "签到信息", "value": f"{sign_msg}"},
+            ]
+            msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
+            print(msg)
         # self.message2qywxapp(qywx_corpid=qywx_corpid, qywx_agentid=qywx_agentid, qywx_corpsecret=qywx_corpsecret,
         #                      qywx_touser=qywx_touser, qywx_media_id=qywx_media_id, content=msg, url=url)
         return msg
