@@ -55,6 +55,7 @@ class SSPANEL:
             msg = "签到失败"
         return msg
 
+    
     def main(self):
         emails = self.check_item.get("email")
         password = self.check_item.get("password")
@@ -75,6 +76,11 @@ class SSPANEL:
             print(msg)
         # self.message2qywxapp(qywx_corpid=qywx_corpid, qywx_agentid=qywx_agentid, qywx_corpsecret=qywx_corpsecret,
         #                      qywx_touser=qywx_touser, qywx_media_id=qywx_media_id, content=msg, url=url)
+
+        # 其他签到
+        first = emails.split(",")[0]
+        sign_msg = self.sign(email=first, password=password, url='https://portx.cc')
+        print('portx:'+first+sign_msg)
         return msg
 
 
