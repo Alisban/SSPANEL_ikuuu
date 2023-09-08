@@ -17,7 +17,7 @@ def main():
             print("----执行第" + str(r) + "个账号---------")
             email = e.split(',')[0]
             passwd = e.split(',')[1]
-            print(f"web:{web}: {email[0:3]}")
+            print(f"web:{web}->{email[0:3]}")
             sign_in(web, email, passwd)
             r += 1
 
