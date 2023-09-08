@@ -69,7 +69,7 @@ class SSPANEL:
         for email in emails.split(","):
             sign_msg = self.sign(email=email, password=password, url=url)
             msg = [
-                {"name": "帐号信息", "value": email},
+                {"name": "帐号信息", "value": email[0:3]},
                 {"name": "签到信息", "value": f"{sign_msg}"},
             ]
             msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
@@ -80,7 +80,7 @@ class SSPANEL:
         # 其他签到
         first = emails.split(",")[0]
         sign_msg = self.sign(email=first, password=password, url='https://portx.cc')
-        print('portx:'+first+sign_msg)
+        print('portx:'+first[0:3]+sign_msg)
         return msg
 
 
