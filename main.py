@@ -55,9 +55,9 @@ class SSPANEL:
             print(msg)
 
         # 其他签到
-        first = emails.split(",")[0]
-        sign_msg = self.sign(email=first, password=password, url='https://portx.cc')
-        print('portx:'+first[0:3]+sign_msg)
+        #first = emails.split(",")[0]
+        #sign_msg = self.sign(email=first, password=password, url='https://portx.cc')
+        #print('portx:'+first[0:3]+sign_msg)
         return msg
 
 if __name__ == "__main__":
