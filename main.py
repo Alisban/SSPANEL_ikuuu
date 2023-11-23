@@ -54,7 +54,7 @@ class SSPANEL:
             msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
             print(msg)
 
-        # 其他签到
+        # 其他签到(因为频繁被删账号，不再注册)
         #first = emails.split(",")[0]
         #sign_msg = self.sign(email=first, password=password, url='https://portx.cc')
         #print('portx:'+first[0:3]+sign_msg)
