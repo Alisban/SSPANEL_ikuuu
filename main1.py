@@ -11,7 +11,7 @@ def main():
     data = json.loads(os.environ['IKUUU_JSON_CONFIG'])
     
     for obj in data:
-        # 遍历对象的键值对
+        # 遍历对象的键值对，增加编辑
         web = obj['web']
         for e in obj['accounts']:
             print("----执行第" + str(r) + "个账号---------")
