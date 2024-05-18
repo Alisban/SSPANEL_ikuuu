@@ -34,7 +34,7 @@ def sign_in(web, email, passwd):
         if 'msg' in ss:
             print(ss['msg'])
     except Exception as e:
-        print('请检查帐号配置是否错误')
+        print('请检查帐号配置是否错误11')
         print("发生异常：", str(e))
 
 if __name__ == '__main__':
