@@ -25,3 +25,5 @@
 >QYWX_TOUSER
 >
 >QYWX_MEDIA_ID(可填可不填)
+
+update 必须
